@@ -7,6 +7,10 @@
 		<style>
 			.special {background:yellow; border: 1px dotted #fe0000; padding:30px; display:block; text-align:center;}
 			.important {font-weight:bold; font-size:30px;}
+			.img{ border-radius: 5px 5px 0 0;}
+			.card { box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); transition: 0.3s; border-radius: 5px;}
+      		.card:hover {box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);}
+			.container {padding: 2px 16px;}
 		</style>
 	</head>
 	<body>
@@ -18,6 +22,24 @@
 		<span v-else>
 			No Profile Data found.
 		</span>
+		
+		<div class="card">
+			<img v-if="profile.pic" v-bind:src="pic" style="width: 100%"/>
+			<p v-else>No Image Found</p>
+
+			<div class="container">
+				<h4 v-if="profile.fname && profile.lname">
+				  <b>{{profile.fname}} {{profile.lname}}</b>
+				</h4>
+				<h4 v-else><b>no name found!</b></h4>
+	  
+				<p v-if="profile.desc">{{profile.desc}}</p>
+				<p v-else>no desc found!</p>
+	  
+				<p v-if="profile.bio">{{profile.bio}}</p>
+				<p v-else>no bio found!</p>
+			</div>
+		</div> 
 	</div>
 	
 	<script>
@@ -25,14 +47,15 @@
 		el: '#app',
 		
 		data:{
-			/*
+			
 			profile:{
-				fname: "John",
-				lname: "Doe"	
+				fname: "Leo",
+				lname: "Nguyen",
+				desc: "A Web designer",
+				bio:"Hey this is my first time with VueJS",
+				pic:"",	
 			}
-			*/
 		}
-		
 	});
 	</script>
 	

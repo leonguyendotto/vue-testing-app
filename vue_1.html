@@ -41,6 +41,12 @@
 		<span v-bind:class="loadClass">
 			look at me!
 		</span>
+		<img 
+			v-bind:class="imageClass"
+			v-bind:src="imageSrc"
+			v-bind:alt="imageAlt"
+			v-bind:title="imageTitle"
+		/>
 	</div>
 	
 	<script>
@@ -51,7 +57,11 @@
 			loadClass : 'container',
 			//newStyle : 'font-size:30px;',
 			//newAlt : 'dynamically set alt!'
-			
+			imageClass:"highlight",
+			imageSrc:"https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+			imageAlt: "He is BU BU, a cat with 6 fingers",
+			imageTitle: "A Smart and Lovely Cat",
+
 		}
 	});
 	

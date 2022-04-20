@@ -21,9 +21,15 @@
 	var app = new Vue({
 		el: '#app',
 		data:{
-			isImportant:true
+			isImportant:true,
+			isSpecial:true,
+			isImportant: Math.max()>0.5,
+			isSpecial: Math.max()>0.5,
 		}
 	});
+
+	console.log(app.isImportant);
+	console.log(app.isSpecial);
 	</script>
 	
 		<!--

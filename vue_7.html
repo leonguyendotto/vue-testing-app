@@ -9,23 +9,20 @@
 		</style>
 	</head>
 	<body>
-	<p>Dog Treats Problem. <a href="https://cemc.uwaterloo.ca/contests/computing/2020/index.html">from the J1 problem hosted by the CCC.</a></p>
+	<p>Cupcake Party <a href="https://cemc.uwaterloo.ca/contests/computing/2022/ccc/juniorEF.pdf">from the J1 problem hosted by the CCC.</a></p>
 	<div id="app">
 		<div class="formfield">
-			<label>Small Treats: <label> <input v-model="treat_qty_small">
+			<label>Small Boxes: <label> <input v-model="boxes_qty_small">
 		</div>
 		<div class="formfield">
-			<label>Medium Treats: <label> <input v-model="treat_qty_medium">
-		</div>
-		<div class="formfield">
-			<label>Large Treats: <label> <input v-model="treat_qty_large">
+			<label>Large Boxes: <label> <input v-model="boxes_qty_large">
 		</div>
 		<div id="result">
-			<div><label>show diagnostics:</label><input type="checkbox" v-model="treat_diagnostics"></div>
-			<div v-if="treat_diagnostics">Treat Total: {{treat_total}}</div>
-			<div v-if="treat_diagnostics">Is_Happy: {{is_happy}}</div>
-			<span v-if="is_happy">{{dog_name}} is Happy!</span>
-			<span v-else>{{dog_name}} is sad..</span>
+			<div><label>Show Data?:</label><input type="checkbox" v-model="cupcake_diagnostics"></div>
+			<div v-if="cupcake_diagnostics">Cupcake Total: {{cupcake_total}}</div>
+			<div v-if="cupcake_diagnostics">Cupcake Leftover?: {{is_leftover}}</div>
+			<span v-if="is_leftover">{{cupcake_total}} cupcakes are Left Over!</span>
+			<span v-else>No cupcakes are left over!</span>
 		</div>
 	</div>
 	
@@ -33,24 +30,18 @@
 	var app = new Vue({
 		el: '#app',
 		data:{
-			treat_diagnostics:false,
-			dog_name:"Barley",
-			treat_qty_small:0,
-			treat_qty_medium:0,
-			treat_qty_large:0,
-			treat_value_small:1,
-			treat_value_medium:2,
-			treat_value_large:3
+			cupcake_diagnostics:false,
+			boxes_qty_small:0,
+			boxes_qty_large:0
 		},
 		computed:{
-			treat_total:function(){
-				return (this.treat_qty_small * this.treat_value_small) + 
-				(this.treat_qty_medium * this.treat_value_medium) + 
-				(this.treat_qty_large * this.treat_value_large);	
+			cupcake_total:function(){
+				return (this.boxes_qty_large * 8) + 
+				(this.boxes_qty_small * 3) - 28;	
 			},
-			is_happy:function(){
+			is_leftover:function(){
 				
-				return this.treat_total>=10;	
+				return this.cupcake_total >= 0;	
 			}
 		}
 	});
